@@ -35,4 +35,5 @@ nosetests.xml
 .DS_Store
 venv
 south
+migrations
 *.pyc

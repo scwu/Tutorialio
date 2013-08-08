@@ -33,7 +33,5 @@ class ChatUser(models.Model):
     class Meta:
         ordering = ("name",)
 
-        return self.name
-
     def __unicode__(self):
         return self.name

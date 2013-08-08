@@ -3,6 +3,7 @@ $(function() {
     var name, started = false;
 
     var addItem = function(selector, item) {
+        console.log(selector);
         var template = $(selector).find('script[type="text/x-jquery-tmpl"]');
         template.tmpl(item).appendTo(selector);
     };

@@ -25,5 +25,7 @@ urlpatterns = patterns('',
 
     (r'^$', views.index, {}, "Home"),
     (r'^about/$', views.about, {}, "About"),
+    url("", include("django_socketio.urls")),
+    url("", include("app.urls")),
     #HP add pages here
 )

@@ -3,6 +3,14 @@
 
 import sys, os #HP
 
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
+full_path = lambda *parts: os.path.join(PROJECT_ROOT, *parts)
+example_path = full_path("..", "..")
+if example_path not in sys.path:
+    sys.path.append(example_path)
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -85,6 +93,8 @@ STATICFILES_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
 )
 
+TEMPLATE_DIRS = full_path("templates")
+
 # List of finder classes that know how to find static files in
 # various locations.
 STATICFILES_FINDERS = (
@@ -154,14 +164,15 @@ INSTALLED_APPS = (
     # Trust us, you'll need it if you're using a relational database like sqlite, MYSQL, POSTGRES
     # install south with `pip install south` (it comes pre-installed on pythonanywhere)
     # If you're not using a relational database, you can comment this out.
-    'south', #HP
+    'south',
     'social_auth',
-    'mysite.app' #HP
+    'django_socketio',
+    'mysite.app',
 )
 
 TWITTER_CONSUMER_KEY         = 'xvh3419bP5bDKPum3BtUHg'
 TWITTER_CONSUMER_SECRET      = 'rp5a1JzMMZTpajvu7iOTU4O4pXpQlCyJQTryo4yL4'
-SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/profile/'
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/rooms/'
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error.

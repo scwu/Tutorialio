@@ -6,7 +6,7 @@
 <script>$(showForm);</script>
 {% endblock %}
 
-{% block main %}
+{% block content %}
 {% for room in rooms %}
 <div class="room">
     <h1><a href="{{ room.get_absolute_url }}">{{ room }}</a></h1>

@@ -26,18 +26,14 @@ class ChatRoom(models.Model):
 class ChatUser(models.Model):
 
     name = models.CharField(max_length=20)
+    user_type = models.CharField(max_length=20)
     session = models.CharField(max_length=20)
     room = models.ForeignKey("app.ChatRoom", related_name="users")
 
     class Meta:
         ordering = ("name",)
 
-    def __unicode__(self):
         return self.name
-
-class UserProfile(models.Model):
-    user = models.OneToOneField(User)
-    chat_user = models.OneToOneField(ChatUser)
 
     def __unicode__(self):
         return self.name

@@ -1,6 +1,3 @@
-123748287835541
-d]
-
 # C extensions
 *.so
 
@@ -38,4 +35,4 @@ nosetests.xml
 .DS_Store
 venv
 south
-migrations
+*.pyc
